@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ahmad Dzaki Alfaruq - Website Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <script src="script.js" defer></script>
+  <style>
+  html {
+    scroll-behavior: smooth;
+  }
+</style>
+
+</head>
+<body>
+  <header>
+    <h1>Ahmad Dzaki Alfaruq</h1>
+    <nav>
+      <a href="#hero">Home</a>
+      <a href="#about">About</a>
+      <a href="#resume">Resume</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="hero">
+      <div class="hero-content">
+      <h1>Ahmad Dzaki Alfaruq</h1>
+        <p>This is my Portfolio Website. Feel free to explore other pages to know more about me.</p>
+      <a href="#about" class="hero-btn">Enter Portfolio</a>
+    </div>
+  </section>
+
+
+  <section id="about">
+    <div class="container section-content">
+      <h1>ABOUT ME</h1>
+      <img src="Almet.jpg" alt="Foto Saya" class="profile-pic" />
+      <p>I am an IT student looking for internship opportunities in IT related fields. I can understand the learning that I am interested in quickly even though it is not much. I am proficient in various programming languages, such as HTML, CSS, JavaScript, Python, Java and also others. I am proficient in Website Development, Mobile Applications.</p>
+    </div>
+  </section>
+
+  <section id="resume">
+  <div class="container section-content">
+    <h1>RESUME</h1>
+
+    <div class="resume-section">
+      <h3 class="resume-title">EDUCATION</h3>
+      <div class="resume-item">
+        <p><strong>Undergraduate:</strong> President University — CIT - Informatics Study Program (2023–Now)</p>
+        <p><strong>High School:</strong> Fitrah Islamic World Academy (2018–2021)</p>
+      </div>
+    </div>
+
+    <div class="resume-section">
+      <h3 class="resume-title">PROJECTS</h3>
+      <div class="project-cards">
+        <div class="project-card">
+          <img src="watermanagesystem.jpg" alt="Water Management System Project">
+          <div class="project-info">
+            <h4>Water Management System</h4>
+            <p>A system to monitor and control water usage efficiently using sensors and a web interface.</p>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <img src="Concert.jpg" alt="Concert Ticketing Website">
+          <div class="project-info">
+            <h4>Concert Ticketing Website</h4>
+            <p>Developed a user-friendly platform for purchasing and managing concert tickets online.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <section id="skills">
+    <div class="container skill-section-content">
+        <h1>SKILL</h1>
+        <p class="skill-subtitle">Explore more about my skills and the tools I use.</p>
+
+        <div class="skill-tabs">
+            <button class="skill-tab active" data-skill="web-development">Web Development</button>
+            <button class="skill-tab" data-skill="cybersecurity">Cybersecurity</button>
+            <button class="skill-tab" data-skill="ui-ux-design">UI/UX Design</button>
+        </div>
+
+        <p id="skill-description" class="skill-description-text"></p>
+
+        <div class="skill-cards-grid">
+            <div class="skill-card" data-category="web-development">
+                <i class="fab fa-html5 skill-icon"></i> <div class="skill-info">
+                    <h3>HTML5</h3>
+                </div>
+            </div>
+            <div class="skill-card" data-category="web-development">
+                <i class="fab fa-css3-alt skill-icon"></i> <div class="skill-info">
+                    <h3>CSS3</h3>
+                </div>
+            </div>
+            <div class="skill-card" data-category="web-development">
+                <i class="fab fa-js skill-icon"></i> <div class="skill-info">
+                    <h3>JavaScript</h3>
+                </div>
+            </div>
+
+            </div>
+            <div class="skill-card" data-category="cybersecurity" style="display: none;">
+                <i class="fas fa-server skill-icon"></i> <div class="skill-info">
+                    <h3>VirtualBox</h3>
+                </div>
+            </div>
+            <div class="skill-card" data-category="cybersecurity" style="display: none;">
+                <i class="fas fa-shield-alt skill-icon"></i> <div class="skill-info">
+                    <h3>OSINT Tools</h3>
+                </div>
+            </div>
+
+            <div class="skill-card" data-category="ui-ux-design" style="display: none;">
+                <i class="fas fa-palette skill-icon"></i> <div class="skill-info">
+                    <h3>Canva</h3>
+                </div>
+            </div>
+            <div class="skill-card" data-category="ui-ux-design" style="display: none;">
+                <i class="fas fa-code skill-icon"></i> <div class="skill-info">
+                    <h3>Visual Studio Code</h3>
+                </div>
+            </div>
+            <div class="skill-card" data-category="ui-ux-design" style="display: none;">
+                <i class="fab fa-css3-alt skill-icon"></i> <div class="skill-info">
+                    <h3>CSS Styling</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container contact-section-content">
+        <h1>CONTACT ME</h1>
+
+        <div class="contact-cards">
+            <div class="card">
+                <div class="card-icon">
+                    <i class="fas fa-share-alt"></i>
+                </div>
+                <h3>Social Profiles</h3>
+                <div class="social-links">
+                    <a href="https://github.com/ahmaddzakialfaruq123" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://instagram.com/alfaroukh_" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://linkedin.com/in/ahmad-dzaki-alfaruq-51307928b" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-icon">
+                    <i class="far fa-envelope"></i>
+                </div>
+                <h3>Email Me</h3>
+                <p class="email-address">alfaruqahmaddzaki@gmail.com</p>
+            </div>
+        </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Ahmad Dzaki Alfaruq</p>
+  </footer>
+</body>
+</html>

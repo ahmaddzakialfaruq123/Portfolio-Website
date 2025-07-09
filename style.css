@@ -1,0 +1,766 @@
+/* Import font Poppins untuk Contact dan Skills Section */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* Global Variables */
+:root {
+    /* Main Theme Colors */
+    --body-bg: #1e1f26; /* Latar belakang utama halaman */
+    --section-bg: #1e1e1e; /* Latar belakang untuk kotak konten setiap section */
+    --text-primary: #e0e0e0; /* Warna teks utama terang */
+    --text-secondary: #d0e1f9; /* Warna teks sekunder (biru muda) */
+    --text-light: #b0b0b0; /* Warna teks lebih terang/subtle */
+    --text-dark: #a0a0a0; /* Warna teks gelap/untuk detail kecil */
+    --accent-yellow: #ffd54f; /* Warna aksen kuning (hover nav) */
+    --border-main: #3a3a3a; /* Warna border umum */
+    --shadow-main: rgba(0,0,0,0.6); /* Warna shadow umum */
+
+    /* Contact Section Specific */
+    --contact-primary-green: #283655; /* Variabel untuk warna aksen biru */
+    --contact-card-bg: #2b2b2b; /* Background kartu kontak */
+    --contact-border-color: #3a3a3a; /* Border kartu kontak */
+
+    /* Skills Section Specific */
+    /* --skills-section-bg: var(--section-bg); <-- Ini dihapus/diubah */
+    --tab-inactive-bg: #2b2b2b;
+    --tab-border: #444;
+    --tab-active-bg: #4d648d; /* Warna ungu/biru gelap untuk tab aktif, disesuaikan */
+    --skill-card-bg: #2b2b2b; /* Background kartu skill */
+    --skill-card-border: #444; /* Border kartu skill */
+}
+
+/* Global Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--body-bg); /* Latar belakang keseluruhan halaman */
+  color: var(--text-primary);
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  transition: background-color 0.3s ease;
+}
+
+/* Estetik: Custom Scrollbar untuk tampilan yang lebih mulus di browser modern */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #2a2a2a;
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #777;
+}
+
+/* Estetik: Gaya seleksi teks */
+::selection {
+    background-color: var(--accent-yellow);
+    color: var(--body-bg);
+}
+::-moz-selection {
+    background-color: var(--accent-yellow);
+    color: var(--body-bg);
+}
+
+/* Fullscreen Hero Section */
+#hero {
+  height: 100vh;
+  background: linear-gradient(135deg, #1e1f26, #283655);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  position: relative;
+  padding: 0 20px;
+  overflow: hidden;
+}
+
+.hero-content {
+  max-width: 700px;
+  color: var(--text-secondary);
+  animation: fadeIn 1.5s ease;
+}
+
+#hero h1 {
+  font-size: 60px;
+  color: #fff;
+  font-weight: 700;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
+}
+
+#hero p {
+  font-size: 22px;
+  color: var(--text-light);
+  margin-bottom: 40px;
+  font-style: italic;
+}
+
+.hero-btn {
+  padding: 12px 28px;
+  font-size: 16px;
+  color: #fff;
+  background-color: var(--tab-active-bg);
+  border: none;
+  border-radius: 25px;
+  text-decoration: none;
+  font-family: 'Poppins', sans-serif;
+  letter-spacing: 1px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+}
+
+.hero-btn:hover {
+  background-color: #5f82c2;
+  transform: translateY(-2px);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* Header/Navbar Styles */
+header {
+  background: linear-gradient(135deg, #283655, #4d648d);
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.8);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+header h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+    letter-spacing: 1.5px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+nav {
+  margin-top: 10px;
+}
+
+nav a {
+  margin: 0 15px;
+  color: var(--text-primary);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 17px;
+  transition: color 0.3s ease, transform 0.2s ease;
+  position: relative;
+}
+
+/* Estetik: Efek underline saat hover */
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--accent-yellow);
+    transition: width 0.3s ease-out;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+nav a:hover {
+  color: var(--accent-yellow);
+  transform: translateY(-2px);
+}
+
+/* General Section Content Styles (Kotak konten yang menonjol) */
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.section-content {
+    margin: 40px auto;
+    padding: 40px 25px; /* Padding vertikal dan horizontal konsisten */
+    background: var(--section-bg); /* Latar belakang kotak konten */
+    border-radius: 12px;
+    box-shadow: 0 6px 20px var(--shadow-main);
+    text-align: center;
+    border: 1px solid var(--border-main);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+}
+
+
+.section-content h2 {
+  margin: 20px 0 15px;
+  color: #fff; /* Warna putih */
+  font-size: 32px;
+  letter-spacing: 1px;
+}
+
+.section-content p {
+  margin-bottom: 15px;
+  color: var(--text-secondary);
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.profile-pic {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 25px;
+    border: 4px solid var(--text-secondary);
+    box-shadow: 0 0 15px rgba(208, 225, 249, 0.3);
+}
+
+/* Contact Section Specific Styles */
+.contact-section-content {
+    margin: 40px auto; /* Margin vertikal konsisten antar section */
+    padding: 40px 25px; /* Padding vertikal dan horizontal konsisten */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-color: var(--section-bg); /* Latar belakang kotak konten */
+    border-radius: 12px;
+    box-shadow: 0 6px 20px var(--shadow-main);
+    border: 1px solid var(--border-main);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-section-content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+}
+
+.contact-section-content h1 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 44px;
+    font-weight: 700;
+    margin-bottom: 35px;
+    color: #fff;
+    letter-spacing: 2px;
+    text-shadow: 1px 1px 5px rgba(0,0,0,0.4);
+}
+
+.contact-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 55px;
+}
+
+.contact-line {
+    width: 40px;
+    height: 3px;
+    background-color: var(--contact-primary-green);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-100%);
+    margin-left: -15px;
+    border-radius: 2px;
+}
+
+.contact-header h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--text-light);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.contact-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+    width: 100%;
+    padding: 0 20px;
+}
+
+.card {
+    background-color: var(--contact-card-bg);
+    border: 1px solid var(--contact-border-color);
+    border-radius: 10px;
+    padding: 30px;
+    flex: 1;
+    min-width: 280px;
+    max-width: 48%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    border-color: var(--contact-primary-green);
+    box-shadow: 0 8px 25px #4d648d;
+}
+
+.card-icon {
+    width: 65px;
+    height: 65px;
+    background-color: #4d648d;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 25px;
+    transition: background-color 0.3s ease;
+}
+
+.card:hover .card-icon {
+    background-color: #4d648d;
+}
+
+.card-icon i {
+    font-size: 30px;
+    color: var(--contact-primary-green);
+}
+
+.card h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #fff;
+    letter-spacing: 0.5px;
+}
+
+.social-links a {
+    color: var(--text-light);
+    font-size: 26px;
+    margin: 0 12px;
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.social-links a:hover {
+    color: var(--contact-primary-green);
+    transform: scale(1.1);
+}
+
+.email-address {
+    font-family: 'Poppins', sans-serif;
+    font-size: 17px;
+    font-weight: 400;
+    color: var(--text-primary);
+}
+
+/* Footer Styles (Menggunakan gradient yang sama dengan header untuk konsistensi) */
+footer {
+  background: linear-gradient(135deg, #283655, #4d648d);
+  color: #fff;
+  text-align: center;
+  padding: 20px 10px;
+  font-size: 14px;
+  margin-top: auto;
+  border-top: 1px solid #2f2f2f;
+  box-shadow: 0 -2px 8px rgba(0,0,0,0.7);
+}
+
+/* Reveal Animation Styles */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Skills Section Specific Styles (Tampilan background dan container mengikuti tampilan About Me) */
+#skills {
+    background-color: var(--body-bg); /* <--- PERUBAHAN DI SINI: Latar belakang section skill sama dengan body */
+    padding: 70px 0;
+    text-align: center;
+}
+
+.skill-section-content {
+    margin: 40px auto; /* Margin vertikal konsisten antar section */
+    padding: 40px 25px; /* Padding vertikal dan horizontal konsisten */
+    max-width: 900px;
+    background: var(--section-bg); /* Latar belakang kotak konten skill, agar menonjol dari body */
+    border-radius: 12px;
+    box-shadow: 0 6px 20px var(--shadow-main);
+    border: 1px solid var(--border-main);
+}
+
+
+#skills h2 {
+    font-size: 36px;
+    color: #fff;
+    margin-bottom: 10px;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 1.5px;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+.skill-subtitle {
+    font-size: 17px;
+    color: var(--text-light);
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.skill-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 35px;
+    flex-wrap: wrap;
+}
+
+.skill-tab {
+    background-color: var(--tab-inactive-bg);
+    border: 1px solid var(--tab-border);
+    padding: 10px 22px;
+    border-radius: 25px;
+    color: var(--text-primary);
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease, background-color 0.4s ease;
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 0.5px;
+}
+
+.skill-tab:hover {
+    background-color: #383838;
+    border-color: #777;
+    transform: translateY(-2px);
+}
+
+.skill-tab.active {
+    background-color: var(--tab-active-bg);
+    border-color: var(--tab-active-bg);
+    color: #fff;
+    box-shadow: 0 4px 10px rgba(77, 100, 141, 0.5);
+    transform: translateY(-2px);
+}
+
+.skill-description-text {
+    font-size: 16px;
+    color: var(--text-light);
+    margin-bottom: 45px;
+    font-style: italic;
+    min-height: 25px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.skill-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    justify-content: center;
+}
+
+.skill-card {
+    background-color: var(--skill-card-bg);
+    border: 1px solid var(--skill-card-border);
+    border-radius: 10px;
+    padding: 22px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+}
+
+.skill-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+    border-color: var(--tab-active-bg);
+}
+
+.skill-card .skill-icon {
+    font-size: 48px;
+    color: var(--tab-active-bg);
+    width: 50px;
+    text-align: center;
+    flex-shrink: 0;
+    text-shadow: 0 0 10px rgba(77, 100, 141, 0.4);
+}
+
+.skill-info h3 {
+    font-size: 19px;
+    color: var(--card-text-color);
+    margin-bottom: 5px;
+    text-align: left;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 0.5px;
+}
+
+.skill-info p {
+    font-size: 14px;
+    color: var(--text-dark);
+    text-align: left;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 30px;
+    }
+
+    nav a {
+        margin: 0 10px;
+        font-size: 14px;
+    }
+
+    .section-content,
+    .contact-section-content,
+    .skill-section-content { /* Konsisten di responsive */
+        margin: 30px 10px;
+        padding: 25px 15px 30px;
+    }
+
+    .section-content h2 {
+        font-size: 28px;
+    }
+
+    .contact-section-content h1 {
+        font-size: 38px;
+    }
+
+    .contact-cards {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .card {
+        max-width: 90%;
+        min-width: unset;
+        width: 100%;
+        padding: 25px;
+    }
+
+    .contact-header {
+        padding-left: 45px;
+    }
+    .contact-line {
+        width: 30px;
+        margin-left: -10px;
+    }
+    .contact-header h2 {
+        font-size: 16px;
+    }
+
+    /* Skills Responsive */
+    #skills h2 {
+        font-size: 32px;
+    }
+    .skill-subtitle {
+        font-size: 16px;
+    }
+    .skill-tabs {
+        flex-direction: column;
+        align-items: center;
+    }
+    .skill-tab {
+        width: 80%;
+        max-width: 250px;
+    }
+    .skill-cards-grid {
+        grid-template-columns: 1fr;
+        padding: 0 10px;
+    }
+    .skill-card {
+        flex-direction: row;
+        justify-content: flex-start;
+    }
+    .skill-card .skill-icon {
+        font-size: 40px;
+        width: 40px;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 24px;
+    }
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    nav a {
+        margin: 5px 8px;
+    }
+
+    .section-content,
+    .contact-section-content,
+    .skill-section-content { /* Konsisten di responsive */
+        margin: 20px 5px;
+        padding: 20px 10px 25px;
+    }
+
+    .contact-section-content h1 {
+        font-size: 30px;
+    }
+
+    .card {
+        padding: 20px;
+    }
+
+    .card h3 {
+        font-size: 18px;
+    }
+
+    .social-links a {
+        font-size: 20px;
+    }
+
+    .email-address {
+        font-size: 16px;
+    }
+
+    /* Skills Responsive */
+    #skills {
+        padding: 40px 0;
+    }
+    #skills h2 {
+        font-size: 28px;
+    }
+    .skill-subtitle {
+        font-size: 14px;
+    }
+    .skill-tab {
+        padding: 10px 20px;
+        font-size: 15px;
+    }
+    .skill-card {
+        padding: 15px;
+        gap: 10px;
+    }
+    .skill-card .skill-icon {
+        font-size: 35px;
+        width: 35px;
+    }
+    .skill-info h3 {
+        font-size: 16px;
+    }
+    .skill-info p {
+        font-size: 13px;
+    }
+}
+
+/* Resume Section Styling */
+.resume-section {
+  margin-top: 30px;
+  text-align: left;
+}
+
+.resume-title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 22px;
+  color: var(--text-secondary);
+  margin-bottom: 15px;
+  border-left: 4px solid var(--tab-active-bg);
+  padding-left: 12px;
+}
+
+.resume-item {
+  margin-bottom: 25px;
+  font-size: 16px;
+  color: var(--text-primary);
+  line-height: 1.7;
+  padding-left: 10px;
+}
+
+.project-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+}
+
+.project-card {
+  background-color: var(--skill-card-bg);
+  border: 1px solid var(--skill-card-border);
+  border-radius: 12px;
+  overflow: hidden;
+  max-width: 350px;
+  width: 100%;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.6);
+}
+
+.project-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.project-info {
+  padding: 15px;
+}
+
+.project-info h4 {
+  font-size: 18px;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+}
+
+.project-info p {
+  font-size: 14px;
+  color: var(--text-dark);
+  line-height: 1.6;
+}
+
+/* Konsistensi Tampilan Judul Section Utama */
+.section-content h1,
+.contact-section-content h1,
+.skill-section-content h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 44px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 2px;
+  margin-bottom: 35px;
+  text-align: center;
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.4);
+}
